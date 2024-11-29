@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Cake, Menu, X } from 'lucide-react';
-import { Link } from './Link';
+import Link from 'next/link';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,10 +14,12 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Cake className="h-8 w-8 text-pink-500" />
-            <span className="ml-2 text-xl font-semibold text-gray-900">Sweet Delights</span>
-          </div>
+          <Link href="/" className="flex items-center justify-center">
+          
+           <Cake className="h-8 w-8 text-pink-500" />
+           <span className="ml-2 text-xl font-semibold text-gray-900">Sweet Delights</span>
+        
+          </Link>
 
           {/* Mobile menu button */}
           <button
@@ -34,11 +36,11 @@ export function Navbar() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" active>Home</Link>
-            <Link href="/products">Products</Link>
-            <Link href="/about">About Us</Link>
-            <Link href="/contact">Contact</Link>
-            <button className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-colors">
+            <Link href="/"><span className='text-gray-900 text-pink-500'>Home</span></Link>
+            <Link href="/products"><span className='text-gray-900 hover:text-pink-500 active:text-pink-500'>Products</span></Link>
+            <Link href="/about"><span className='text-gray-900 hover:text-pink-500 active:text-pink-500'>About Us</span></Link>
+            <Link href="/contact"><span className='text-gray-900 hover:text-pink-500 active:text-pink-500'>Contact</span></Link>
+            <button onClick={() => window.location.href = '/products'} className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-colors">
               Order Now
             </button>
           </div>

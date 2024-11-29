@@ -6,7 +6,7 @@ interface LinkProps {
   active?: boolean;
 }
 
-export function Link({ href, children, active }: LinkProps) {
+export function Links({ href, children, active }: LinkProps) {
   return (
     <a
       href={href}

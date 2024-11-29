@@ -27,6 +27,10 @@ const Page = ({ params }: { params: Promise<any> }) => {
         }));
     };
 
+    const handleBuyNow = () => {
+        window.location.href = `https://api.whatsapp.com/send?phone=917027688282&text=I want to buy ${productData?.name}`;
+    }
+
     return <div><Navbar />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -46,12 +50,12 @@ const Page = ({ params }: { params: Promise<any> }) => {
                     />
 
                     <div className="flex space-x-4">
-                        <button className="flex-1 bg-pink-500 text-white px-6 py-3 rounded-md hover:bg-pink-600 transition-colors">
-                            Add to Cart
+                        <button onClick={handleBuyNow} className="flex-1 bg-pink-500 text-white px-6 py-3 rounded-md hover:bg-pink-600 transition-colors">
+                            Buy Now
                         </button>
-                        <button className="p-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                            <Heart className="w-6 h-6 text-gray-600" />
-                        </button>
+                        {/* <button className="p-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+                            <Heart strokeWidth={1.5} color="#eb4899" className="w-6 h-6 text-gray-600" />
+                        </button> */}
                     </div>
 
                     {/* <DeliveryInfo /> */}
